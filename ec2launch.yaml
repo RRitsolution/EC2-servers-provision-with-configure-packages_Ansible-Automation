@@ -1,0 +1,19 @@
+---
+- name: Luanch EC2 Instance ## It is play name 
+  hosts: local ## Bascially Ansible will run this playbook on ansible control node itself
+  connection: local   ## It means Ansbile will use local connnection not ssh
+  vars_files:
+    - secrets.yaml ## it will be used for access variables in to playbook 
+  tasks:              ## So It is tasks section to be executed 
+     - name: EC2 Provisioning ## It is task name
+       amazon.aws.ec2_instance:   ##It is module name for EC2 provision
+          name: "Production server"
+          region: ap-south-1 
+          image_id:  ami-0f918f7e67a3323f0
+          instance_type: t2.micro
+          key_name: "{{key_name}}"
+          security_group: "{{security_group}}"
+          vpc_subnet_id: subnet-0ef3d45434656e695
+          network_interfaces:
+              - assign_public_ip: true
+          count: 3
