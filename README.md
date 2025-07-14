@@ -3,9 +3,13 @@ This repository is automate(except existing ssh key and security group and subne
 
 Project Overview:-
 1: We will launch 3 EC2 vms on AWS with automation Ansible
+
 2: Then We will fetch dynamically Public IPS of earlier launched VMs to connect purpose
+
 3: Finally We will setup all 3 servers like webserver(deploy apache2 package) 1st server and 2nd for data base server(deploy mysql_server) and last 3rd one for application server (deploy python package)
+
 4: We will also confirm if required packages are succesfully installed or not 
+
 
 Below are the files structure used to deploy this project .
 
